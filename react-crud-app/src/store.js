@@ -15,7 +15,6 @@ const initialState = {};
 const store = configureStore({
     reducer: rootReducer,
     middleware: [sagaMiddleware, logger],
-
     //devTool이란 스프링부트에서 제공하는 개발 편의 모듈인데 여기서는 아닌듯..
     /* devTools란 ? 
     Google Chrome에 내장되어 있는 웹 저작 및 디버깅 도구이다. 크롬 개발자도구를

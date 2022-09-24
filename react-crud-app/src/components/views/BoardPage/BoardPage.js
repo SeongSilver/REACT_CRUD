@@ -1,20 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import BoardList from './Sections/BoardList';
+import { Button, Typography } from 'antd';
 
-function BoardPage(){
-    return(
-        <div>
+const { Title } = Typography;
+
+function BoardPage() {
+    return (
+        <div className='registerOrEditBox'>
             <div>
-                <h1>Board Title</h1>
+                <Title>Board Title</Title>
             </div>
             <div>
                 <Link to='/register'>
-                    <button>New Post</button>
+                    <Button type="primary">New Post</Button>
                 </Link>
             </div>
             <div>
-            <BoardList/>
+                <BoardList />
             </div>
         </div>
     )
