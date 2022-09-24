@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import RegisterOrEdit from './Sections/RegisterOrEdit'
 
+//saga를 타도록 할 액션함수를 RegisterPage에서 dispatch해야 한다
+import { useDispatch } from 'react-redux';
+import { articleActions } from '../../../slice/articleSlice';
+
 const RegisterPage = () => {
+    const dispatch = useDispatch();
+
     const [TitleValue, setTitleValue] = useState("");
     const [ContentValue, setContentValue] = useState("");
     const [IsForUpdate, setIsForUpdate] = useState(false);
@@ -17,8 +23,10 @@ const RegisterPage = () => {
     const onSubmitArticle = (event) => {
         event.preventDefault();
         const article = { title: TitleValue, content: ContentValue };
-        console.log(article)
+        dispatch(articleActions.registerArticle(article));
     }
+
+
 
     return (
         <>
