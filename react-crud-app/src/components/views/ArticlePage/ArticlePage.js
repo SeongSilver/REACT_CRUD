@@ -1,9 +1,10 @@
 import React from 'react'
 
-const ArticlePage = () => {
-    return(
+const ArticlePage = ({ match, location }) => {
+    console.log(match.params.articleId)
+    return (
         <div>
-            articlePage
+            ArticlePage-{match.params.articleId}
         </div>
     )
 }
