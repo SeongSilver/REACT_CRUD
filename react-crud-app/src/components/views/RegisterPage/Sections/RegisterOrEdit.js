@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { Button, Input } from 'antd';
 
 const { TextArea } = Input;
@@ -29,10 +28,12 @@ const RegisterOrEdit = (props) => {
                         value={props.contentValue}
                         name="content"
                     />
+                    <div className='registerOrEditBox'>
+                        <Button type="danger" onClick={props.handleSubmit}>
+                            {props.updateRequest ? "수정" : "등록"}
+                        </Button>
+                    </div>
                 </div>
-                <Button type="danger">
-                    {props.updateRequest ? "수정" : "등록"}
-                </Button>
             </form>
         </div>
     )

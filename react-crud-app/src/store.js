@@ -12,6 +12,8 @@ const sagaMiddleware = createSagaMiddleware();
 const initialState = {};
 
 //configureStore 함수 내 필요한 데이터를 집어놓고 store라는 변수로 받아둔다
+//redux-saga를 미들웨어로 쓸 것이기 때문에 createStore가 아닌 
+//redux-toolkit의 configureStore를 사용한다
 const store = configureStore({
     reducer: rootReducer,
     middleware: [sagaMiddleware, logger],
