@@ -1,193 +1,52 @@
 {
   "board": [
     {
-      "title": "시간 테스트",
-      "content": "시간",
+      "title": "ㅁㄴㅇㄻ",
+      "content": "ㄴㅇㄹ",
+      "views": 0,
+      "date": "2022-09-26T12:39:24.102Z",
+      "editDate": "",
       "id": 1
     },
     {
-      "title": "시간 테스트22",
-      "content": "시간32323",
+      "title": "ㅇㄻㄴㅇ",
+      "content": "ㅇㄹ",
       "views": 0,
-      "date": "2022-09-25T11:11:50.857Z",
+      "date": "2022-09-26T13:05:42.628Z",
       "editDate": "",
       "id": 2
     },
     {
-      "title": "히스토리 테스트",
-      "content": "ㅎㅅㅌㄹ",
+      "title": "dfdfsa",
+      "content": "asd",
       "views": 0,
-      "date": "2022-09-25T14:02:41.223Z",
+      "date": "2022-09-26T13:16:24.890Z",
       "editDate": "",
       "id": 3
     },
     {
-      "title": "ㅇㅇㅇㅌㄹㅇㄹ",
-      "content": "ㄹㅇㄹㅇ",
+      "title": "sdf",
+      "content": "dd",
       "views": 0,
-      "date": "2022-09-25T14:04:46.332Z",
+      "date": "2022-09-26T13:19:57.732Z",
       "editDate": "",
       "id": 4
     },
     {
-      "title": "ㅇㅇㅇㅌㄹㅇㄹ",
-      "content": "ㄹㅇㄹㅇ",
+      "title": "asd",
+      "content": "dd",
       "views": 0,
-      "date": "2022-09-25T14:04:46.332Z",
+      "date": "2022-09-26T13:20:46.325Z",
       "editDate": "",
       "id": 5
     },
     {
-      "title": "다시돌아와서 테스트",
-      "content": "테스트1\n",
+      "title": "dfddfs",
+      "content": "ss",
       "views": 0,
-      "date": "2022-09-25T14:28:18.120Z",
+      "date": "2022-09-26T13:24:10.642Z",
       "editDate": "",
       "id": 6
-    },
-    {
-      "title": "다시 테스트 22222222",
-      "content": "제발",
-      "views": 0,
-      "date": "2022-09-25T14:59:22.832Z",
-      "editDate": "",
-      "id": 7
-    },
-    {
-      "title": "하ㅏㅏㅏ핳하",
-      "content": "ㅎㅎㅎㅇㅎ",
-      "views": 0,
-      "date": "2022-09-25T15:03:54.741Z",
-      "editDate": "",
-      "id": 8
-    },
-    {
-      "title": "articlePage 확인",
-      "content": "ㅇㅇ",
-      "views": 0,
-      "date": "2022-09-25T15:26:35.399Z",
-      "editDate": "",
-      "id": 9
-    },
-    {
-      "title": "마지막 테스트",
-      "content": "123456",
-      "views": 0,
-      "date": "2022-09-25T15:33:29.656Z",
-      "editDate": "",
-      "id": 10
-    },
-    {
-      "title": "ㅇㄹㅇㄹ",
-      "content": "ㄴㅇ",
-      "views": 0,
-      "date": "2022-09-25T15:34:29.478Z",
-      "editDate": "",
-      "id": 11
-    },
-    {
-      "title": "또테스트111",
-      "content": "테스ㅡㅡㅡㅌ",
-      "views": 0,
-      "date": "2022-09-26T06:18:16.895Z",
-      "editDate": "",
-      "id": 12
-    },
-    {
-      "title": "테스트ㅡㅡㅡㅡㅡㅡ다",
-      "content": "ㅁㅇㄴㄹ\n",
-      "views": 0,
-      "date": "2022-09-26T06:48:08.023Z",
-      "editDate": "",
-      "id": 13
-    },
-    {
-      "title": "아ㅏㅏㅏㅏ",
-      "content": "제발되라ㅏㅏㅏㅏ",
-      "views": 0,
-      "date": "2022-09-26T07:20:59.818Z",
-      "editDate": "",
-      "id": 14
-    },
-    {
-      "title": "와씨 된다",
-      "content": "된다!",
-      "views": 0,
-      "date": "2022-09-26T07:27:42.761Z",
-      "editDate": "",
-      "id": 15
-    },
-    {
-      "title": "헿ㅎ핳ㅎㅎ핳ㄷ 값 넘어간다 ㅋㅋㅋㅋㅋ",
-      "content": "ㅎㅎㅎ헣ㅎ핳ㅎ",
-      "views": 0,
-      "date": "2022-09-26T07:41:46.167Z",
-      "editDate": "",
-      "id": 16
-    },
-    {
-      "title": "ㅇㄹㅇ",
-      "content": "ㄴㅇㄴ",
-      "views": 0,
-      "date": "2022-09-26T07:46:47.977Z",
-      "editDate": "",
-      "id": 17
-    },
-    {
-      "title": "ㅇㄹㅇ",
-      "content": "ㄴㅇㄴ",
-      "views": 0,
-      "date": "2022-09-26T07:46:47.977Z",
-      "editDate": "",
-      "id": 18
-    },
-    {
-      "title": "마지막 제발베베베",
-      "content": "ㅔ바랄ㄹㄹㄹㄹㄹㄹ",
-      "views": 0,
-      "date": "2022-09-26T08:00:06.808Z",
-      "editDate": "",
-      "id": 19
-    },
-    {
-      "title": "dd",
-      "content": "ddddd",
-      "views": 0,
-      "date": "2022-09-26T08:10:17.792Z",
-      "editDate": "",
-      "id": 20
-    },
-    {
-      "title": "dd",
-      "content": "ddddd",
-      "views": 0,
-      "date": "2022-09-26T08:10:17.792Z",
-      "editDate": "",
-      "id": 21
-    },
-    {
-      "title": "fdfd",
-      "content": "ddd",
-      "views": 0,
-      "date": "2022-09-26T08:20:42.019Z",
-      "editDate": "",
-      "id": 22
-    },
-    {
-      "title": "asd",
-      "content": "sd",
-      "views": 0,
-      "date": "2022-09-26T08:26:14.027Z",
-      "editDate": "",
-      "id": 23
-    },
-    {
-      "title": "asd",
-      "content": "sd",
-      "views": 0,
-      "date": "2022-09-26T08:26:14.027Z",
-      "editDate": "",
-      "id": 24
     }
   ]
 }
