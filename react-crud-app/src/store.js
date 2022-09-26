@@ -6,9 +6,8 @@ import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger'
 import rootReducer from './slice/rootSlice';
 import rootSaga from './sagas/rootSaga'
-import { createBrowserHistory } from 'history';
+import history from './utils/history';
 
-const history = createBrowserHistory();
 //saga를 실행시켜줄 creatSagaMiddleware을 sagaMiddleware라는 변수를 만들어 받아놓고 initialState도 세팅해준다
 const sagaMiddleware = createSagaMiddleware({
     context: { history: history },

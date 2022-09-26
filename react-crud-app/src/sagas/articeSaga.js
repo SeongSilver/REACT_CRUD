@@ -1,6 +1,7 @@
-import { call, put, getContext } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import Axios from 'axios';
 import { articleActions } from '../slice/articleSlice';
+import history from '../utils/history'
 
 export function* registerArticleAsync(action) {
     //data라는 객체애 action.payload를 보관하여
@@ -14,11 +15,11 @@ export function* registerArticleAsync(action) {
     yield alert("저장되었습니다.");
     console.log(response.data.id);
 
-    const history = yield getContext("history");
     //history(url)과 history(url, object)는 url페이지로 이동하는 것을 둘다 같으나
     //history(url, object)일 경우 objectd는 state로 보내진다
+    
     // history.push(`/article/${response.data.id}`);
-    yield history.push(`/article/${response.data.id}`);
+    history.push(`/article/${response.data.id}`, response.data.id);
 
     // put은 redux-saga 버전의 dispatch라고 생각하면 된다
     // yield put(articleActions.registerArticleAsync(data));
