@@ -6,7 +6,7 @@ const initialState = {};
 
 const reducers = {};
 
-const articleSlice = articleSlice({
+const articleSlice = createSlice({
     name,
     initialState,
     reducers
