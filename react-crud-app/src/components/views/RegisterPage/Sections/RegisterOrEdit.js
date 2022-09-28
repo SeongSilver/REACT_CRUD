@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
+import { useParams } from 'react-router-dom'
 
 const { TextArea } = Input;
 
 const RegisterOrEdit = (props) => {
+    const { articleId } = useParams();
+
     return (
         <div>
             <div className='registerOrEditBox'>

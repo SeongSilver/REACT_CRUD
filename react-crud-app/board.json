@@ -1,52 +1,28 @@
 {
   "board": [
     {
-      "title": "ㅁㄴㅇㄻ",
-      "content": "ㄴㅇㄹ",
+      "title": "ㅇㄹㅇㅇ",
+      "content": "ㅇㄴㄴ",
       "views": 0,
-      "date": "2022-09-26T12:39:24.102Z",
+      "date": "2022-09-28T06:31:54.052Z",
       "editDate": "",
       "id": 1
     },
     {
-      "title": "ㅇㄻㄴㅇ",
-      "content": "ㅇㄹ",
+      "title": "fgfd",
+      "content": "ddd",
       "views": 0,
-      "date": "2022-09-26T13:05:42.628Z",
+      "date": "2022-09-28T07:56:07.818Z",
       "editDate": "",
       "id": 2
     },
     {
-      "title": "dfdfsa",
-      "content": "asd",
-      "views": 0,
-      "date": "2022-09-26T13:16:24.890Z",
-      "editDate": "",
-      "id": 3
-    },
-    {
-      "title": "sdf",
-      "content": "dd",
-      "views": 0,
-      "date": "2022-09-26T13:19:57.732Z",
-      "editDate": "",
-      "id": 4
-    },
-    {
-      "title": "asd",
-      "content": "dd",
-      "views": 0,
-      "date": "2022-09-26T13:20:46.325Z",
-      "editDate": "",
-      "id": 5
-    },
-    {
-      "title": "dfddfs",
+      "title": "fddfsd",
       "content": "ss",
       "views": 0,
-      "date": "2022-09-26T13:24:10.642Z",
+      "date": "2022-09-28T07:59:17.458Z",
       "editDate": "",
-      "id": 6
+      "id": 3
     }
   ]
 }
