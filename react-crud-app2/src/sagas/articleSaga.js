@@ -1,35 +1,48 @@
-// import { createSlice } from '@reduxjs/toolkit';
+import { all, call, retry, fork, put, take, select } from 'redux-saga/effects';
+import { articleActions } from '../slices/articleSlice';
+import axios from '../utils/axios';
+import qs from "query-string";
 
-// //createSlice는 자동으로 액션 타입과 생성함수를 만들어준다
-// export const articleSaga = createSlice({
-//     //slice의 이름
-//     name: 'article',
-//     initialState: {
-//         id: 0,
-//         title: "",
-//         content: "",
-//         views: 0,
-//         date: new Date(Date.now()),
-//         editDate: new Date(Date.now())
-//     },
-//     //reducers는 registerArticle, registerArticleAsync 2가지 reducer함수가 있는 객체
-//     reducers: {
-//         //saga에서 감시할 액션
-//         registerArticle: (state, { payload: article }) => {
-//             console.log(article);
-//         },
-//         //상태변경은 registerArticleAsync 함수는 서버 저장 후 게시물을 불러오는 데까지 이어쓴다
-//         registerArticleAsync: (state, { payload }) => {
-//             //payload값으로 articleSaga에서 보냈던 data가 들어와있음을 알 수 있다.
-//             console.log(payload + "이거는 articleSlice");
-//             debugger;
-//             return {
-//                 ...state,
-//                 id: payload.id,
-//             };
-//         },
-//     },
-// });
+const SECOND = 1000;
 
-// export const articleReducers = articleSaga.reducer;
-// export const articleActions = articleSaga.actions;
+//api 서버 연결 주소
+function apiGetArticle(articleId) {
+    return axios.get(`article/${articleId}`);
+}
+
+function apiGetArticleList(requestParams) {
+    //requestParams는 {boardId:숫자}이고 
+    //query-string은 이걸 url의 query-string으로 바꿔준다
+    //호출되는 url은 article?boardId=숫자가 된다
+    return axios.get(`article?${qs.stringify(requestParams)}`);
+}
+
+//api서버 연결 후 action 호출
+function* asyncGetAritcleList(action) {
+    try {
+        //const response = yield call(apiGetArticleList, {boardId:action.payload});
+        //retry메서드는 call메서드(동기 실행)를 가지고 있다. 다만 주어진 조건에 따라 call을 시도하는 것
+        //yield retry(횟수, 시간(mills), 호출함수, 호출함수 input)
+        //첫번째 call이 실패했을 때 정해진 시간 간격마다 정해진 횟수 안에 연결이 성공할 때까지 call을 시도한다
+        const response = yield retry(3, 10 * SECOND, apiGetArticleList, { boardId: action.payload });
+        if (response?.status === 200) {
+            yield put(articleActions.getArticleListSuccess(response));
+        } else {
+            yield put(articleActions.getArticleListFail(response));
+        }
+    } catch (e) {
+        yield put(articleActions.getArticleListFail(e.response));
+    }
+}
+
+//action 호출을 감시하는 watch 함수
+function* watchGetArticleList() {
+    while (true) {
+        const action = yield take(articleActions.getArticleList);
+        yield call(asyncGetAritcleList, action);
+    }
+}
+
+export default function* articleSaga() {
+    yield all([fork(watchGetArticleList)]);
+}
