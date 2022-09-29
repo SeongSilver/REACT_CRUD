@@ -17,6 +17,11 @@ function apiGetArticleList(requestParams) {
     return axios.get(`article?${qs.stringify(requestParams)}`);
 }
 
+//#5에서 추가 
+function apiPutArticle(requestBody) {
+    return axios.put(`article/${requestBody?.id}`, requestBody);
+}
+
 //api서버 연결 후 action 호출
 function* asyncGetAritcleList(action) {
     try {
@@ -35,6 +40,41 @@ function* asyncGetAritcleList(action) {
     }
 }
 
+//#5에서 추가
+function* asyncGetArticle(action) {
+    try {
+        const response = yield call(apiGetArticle, action.payload);
+        if (response?.status === 200) {
+            yield put(articleActions.getArticleListSuccess()); //조회 성공확인판단 하는 용도로 남김
+            yield put(articleActions.updateArticleViews(response.data));//조회수 업데이트 액션 호출
+        } else {
+            yield put(articleActions.getArticleFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(articleActions.getArticleFail(e.response));
+    }
+}
+
+//#5에서 추가
+function* asyncUpdateArticleViews(action) {
+    try {
+        const response = yield call(apiPutArticle, {
+            ...action.payload,
+            views: parseInt(action.payload?.views ?? 0) + 1,
+            updateDate: Date.now()
+        });
+        if (response?.status === 200) {
+            yield put(articleActions.updateArticleViewsSuccess(response));
+        } else {
+            yield put(articleActions.updateArticleViewsFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(articleActions.updateArticleViewsFail(e?.response));
+    }
+}
+
 //action 호출을 감시하는 watch 함수
 function* watchGetArticleList() {
     while (true) {
@@ -43,6 +83,25 @@ function* watchGetArticleList() {
     }
 }
 
+function* watchGetArticle() {
+    while (true) {
+        const action = yield take(articleActions.getArticle);
+        yield call(asyncGetArticle, action);
+    }
+}
+
+function* watchUpdateArticleViews() {
+    while (true) {
+        const action = yield take(articleActions.updateArticleViews);
+        yield call(asyncUpdateArticleViews, action);
+    }
+}
+
+
 export default function* articleSaga() {
-    yield all([fork(watchGetArticleList)]);
+    yield all([
+        fork(watchGetArticleList),
+        fork(watchGetArticle),
+        fork(watchUpdateArticleViews)
+    ]);
 }
