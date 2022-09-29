@@ -2,18 +2,21 @@
     display:block;
     height:200px;
     width:100%;
+    background: rgba(0,0,0,0.2);
 }
 
 .sidebar{
     display:inline-block;
     height:calc(100%-200px);
     width:200px;
+    background-color: rgba(0,0,0,0.3);
 }
 
 .content{
     display:inline-block;
     height:calc(100%-200px);
     width:calc(100%-200px);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .hide{

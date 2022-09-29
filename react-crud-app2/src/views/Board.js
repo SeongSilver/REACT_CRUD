@@ -1,35 +1,53 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { boardActions } from '../slices/boardSlice';
 
 function Board() {
-    const dispatch = useDispatch();
+    //boardReducer의 state를 구독할 useSelector -> 변화할 View단을 설정
+    const { boardList, status, statusText } = useSelector((state) =>
+        state.boardReducer);
 
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(boardActions.getBoardList());
     }, [dispatch])
-
+    console.log(boardList);
     return (
-        <div>
-            <ul>
-                <li>
-                    <Link to="/">
-                        <span>Main</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/board/1">
-                        <span>board1</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/board/2">
-                        <span>board2</span>
-                    </Link>
-                </li>
-            </ul>
-        </div>
+        <>
+            {
+                status === 200 ?
+                    <div>
+                        <ul>
+                            <li key={0}>
+                                <Link to="/">
+                                    <span>Main</span>
+                                </Link>
+                            </li>
+                            {
+                                boardList.length > 0 ?
+                                    boardList.map((board) => (
+                                        <li key={board?.id}>
+                                            <Link to={{ pathname: `/board/${board?.id}` }}>
+                                                <span>{board?.name}</span>
+                                            </Link>
+                                        </li>
+                                    ))
+                                    : <div> 게시판이 없습니다. </div>
+                            }
+                        </ul>
+                    </div>
+                    :
+                    <div>
+                        <div>
+                            <span>{status}</span>
+                        </div>
+                        <div>
+                            <span>{statusText}</span>
+                        </div>
+                    </div>
+            }
+        </>
     )
 }
 
