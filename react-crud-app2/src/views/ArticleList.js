@@ -20,7 +20,6 @@ function ArticleList() {
         state.boardReducer.boardList);
     const dispatch = useDispatch();
     useEffect(() => {
-        //useParams로 가져온 articleId를  getArticle의 action.payload로 태워 dispatch하는 코드
         dispatch(articleActions.getArticleList(params?.boardId ?? 0));
     }, [dispatch, params?.boardId]);
     return (

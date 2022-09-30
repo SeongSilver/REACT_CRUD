@@ -7,19 +7,19 @@ const SECOND = 1000;
 
 //api 서버 연결 주소
 function apiGetArticle(articleId) {
-    return axios.get(`article/${articleId}`);
+    return axios.get(`articles/${articleId}`);
 }
 
 function apiGetArticleList(requestParams) {
     //requestParams는 {boardId:숫자}이고 
     //query-string은 이걸 url의 query-string으로 바꿔준다
     //호출되는 url은 article?boardId=숫자가 된다
-    return axios.get(`article?${qs.stringify(requestParams)}`);
+    return axios.get(`articles?${qs.stringify(requestParams)}`);
 }
 
 //#5에서 추가 게시글 수정시에도 재 활용될 것
 function apiPutArticle(requestBody) {
-    return axios.put(`article/${requestBody?.id}`, requestBody);
+    return axios.put(`articles/${requestBody?.id}`, requestBody);
 }
 
 //api서버 연결 후 action 호출

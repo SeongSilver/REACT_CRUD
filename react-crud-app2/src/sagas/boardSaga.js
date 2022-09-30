@@ -15,10 +15,10 @@ fork(비동기) : call과 파라미터가 같고 마찬가지로 함수를 실�
 
 //api서버 연결 주소
 function apiGetBoard(boardId) {
-    return axios.get(`board/${boardId}`);
+    return axios.get(`boards/${boardId}`);
 }
 function apiGetBoardList() {
-    return axios.get(`board`);
+    return axios.get(`boards`);
 }
 
 //api서버 연결 후 action 호출

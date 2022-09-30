@@ -11,7 +11,7 @@
       "desc": "ToDo"
     }
   ],
-  "board": [
+  "boards": [
     {
       "id": 1,
       "name": "일기",
@@ -27,23 +27,23 @@
       "code": "D"
     }
   ],
-  "article": [
+  "articles": [
     {
       "id": 1,
       "title": "고기 먹는 날",
       "content": "고기는 갓갓임",
-      "views": 10,
+      "views": 13,
       "insertDate": 1617351293396,
-      "updateDate": 1664539273754,
+      "updateDate": 1664540617215,
       "boardId": 1
     },
     {
       "id": 2,
       "title": "치킨 추천하기",
       "content": "교촌이랑 지코바중 하나 택",
-      "views": 14,
+      "views": 17,
       "insertDate": 1617351448578,
-      "updateDate": 1664539737415,
+      "updateDate": 1664540618750,
       "boardId": 2
     }
   ],
