@@ -17,7 +17,7 @@ function apiGetArticleList(requestParams) {
     return axios.get(`article?${qs.stringify(requestParams)}`);
 }
 
-//#5에서 추가 
+//#5에서 추가 게시글 수정시에도 재 활용될 것
 function apiPutArticle(requestBody) {
     return axios.put(`article/${requestBody?.id}`, requestBody);
 }
@@ -45,7 +45,8 @@ function* asyncGetArticle(action) {
     try {
         const response = yield call(apiGetArticle, action.payload);
         if (response?.status === 200) {
-            yield put(articleActions.getArticleListSuccess()); //조회 성공확인판단 하는 용도로 남김
+            yield put(articleActions.getArticleSuccess()); //조회 성공확인판단 하는 용도로 남김
+            //이 방법의 단점은 getArticle 액션을 dispatch 할 때마다 조회수가 update가 되므로 다른 때에 재활용을 못한다는 것이다
             yield put(articleActions.updateArticleViews(response.data));//조회수 업데이트 액션 호출
         } else {
             yield put(articleActions.getArticleFail(response));
@@ -60,6 +61,8 @@ function* asyncGetArticle(action) {
 function* asyncUpdateArticleViews(action) {
     try {
         const response = yield call(apiPutArticle, {
+            //조회수의 경우 다른 정보는 모두 같고 조회수만 +1이므로 
+            //{...action,payload(게시글정보)} spread 배열을 이용하여 views와 updateDate만 덮어씌워준다
             ...action.payload,
             views: parseInt(action.payload?.views ?? 0) + 1,
             updateDate: Date.now()

@@ -10,6 +10,8 @@ function ArticleList() {
     query로 칭하는데 useParam은 딱 parm까지만 가져와준다.
     다른 정보까지 얻고 싶을 때는 react-router 패키지의 훅 useRouterMatch, useLocation을 사용할 수 있다
     */
+
+    //useParam으로 articleId를 가지고 와서 
     const params = useParams();
     const { articleList, status, statusText } = useSelector((state) =>
         state.articleReducer
@@ -18,6 +20,7 @@ function ArticleList() {
         state.boardReducer.boardList);
     const dispatch = useDispatch();
     useEffect(() => {
+        //useParams로 가져온 articleId를  getArticle의 action.payload로 태워 dispatch하는 코드
         dispatch(articleActions.getArticleList(params?.boardId ?? 0));
     }, [dispatch, params?.boardId]);
     return (

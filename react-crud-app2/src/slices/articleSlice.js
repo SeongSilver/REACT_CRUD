@@ -21,6 +21,7 @@ const reducers = {
         state.status = action.payload?.status ?? 500;
         state.statusText = action.payload?.statusText ?? "Network Error";
     },
+
     getArticle: (state, action) => { },
     getArticleSuccess: (state, action) => { },
     getArticleFail: (state, action) => {
@@ -32,8 +33,8 @@ const reducers = {
     updateArticleViews: (state, action) => { },
     updateArticleViewsSuccess: (state, action) => {
         state.article = action.payload?.data ?? {};
-        state.status = action.payload?.status ?? 500;
-        state.statusText = action.payload?.statusText ?? "Network Error";
+        state.status = action.payload?.status;
+        state.statusText = action.payload?.statusText ?? "Success";
     },
     updateArticleViewsFail: (state, action) => {
         state.article = initialState.article;
