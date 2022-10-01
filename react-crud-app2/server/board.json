@@ -32,29 +32,20 @@
       "id": 1,
       "title": "고기 먹는 날",
       "content": "고기는 갓갓임",
-      "views": 17,
+      "views": 32,
       "insertDate": 1617351293396,
-      "updateDate": 1664633295365,
+      "updateDate": 1664640119538,
       "boardId": 1
     },
     {
       "id": 2,
       "title": "치킨 추천하기",
       "content": "교촌이랑 지코바중 하나 택",
-      "views": 21,
+      "views": 42,
       "insertDate": 1617351448578,
-      "updateDate": 1664633299461,
+      "updateDate": 1664641120756,
       "boardId": 2
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "content": "내일은 치킨을 먹어야 겠다",
-      "insertDate": 1617351448578,
-      "updateDate": "",
-      "boardId": 2,
-      "articleId": 1
-    }
-  ]
+  "comments": []
 }

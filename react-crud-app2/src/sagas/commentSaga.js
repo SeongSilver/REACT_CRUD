@@ -36,7 +36,6 @@ function* asyncInsertComment(action) {
         const article = yield select((state) => state.articleReducer.article);
         const response = yield call(apiInsertComment, {
             id: 0,
-            //댓글의 경우 useState로 content 필드만 받아올 것이기 때문에 content:action.payload
             content: action.payload,
             boardId: article.boardId,
             articleId: article.id,

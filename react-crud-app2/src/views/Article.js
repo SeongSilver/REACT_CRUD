@@ -56,7 +56,7 @@ function Article() {
                                 <span>{article?.content ?? ""}</span>
                             </div>
                             <div>
-                                <Comment articleId={params?.articleId ?? 0} history={history} />
+                                <Comment articleId={params?.articleId ?? 0} />
                             </div>
                         </div>
                     </>

@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { commentActions } from '../slices/commentSlice';
 
 function Comments({ articleId }) {
-    const { newComment, setNewComment } = useState("");
-    const { commentList, status, statusText } = useSelector((state) =>
-        state.commentReducer);
+    const [newComment, setNewComment] = useState("");
+    const { commentList, status, statusText } = useSelector((state) => state.commentReducer);
     const dispatch = useDispatch();
 
     function onClickInsertCommentButton() {
@@ -20,7 +19,7 @@ function Comments({ articleId }) {
 
     useEffect(() => {
         dispatch(commentActions.getCommentList(articleId));
-    }, [dispatch, articleId])
+    }, [dispatch, articleId]);
 
     return (
         <>
@@ -36,14 +35,17 @@ function Comments({ articleId }) {
                     status === 200 ?
                         commentList.length > 0 ?
                             commentList.map((comment, index) => (
-                                <>
-                                    <div key={comment?.id ?? index}>
+                                <div key={comment?.id ?? index}>
+                                    <div>
+                                        <span>{comment?.content ?? ""}</span>
+                                    </div>
+                                    <div>
                                         <span>{(comment?.insertDate) ? new Date(comment?.insertDate).toLocaleString() : ""}</span>
                                     </div>
                                     <div>
-                                        <button onClick={() => onClickDeleteCommentButton(comment?.id ?? 0)}>X</button>
+                                        <button onClick={() => onClickDeleteCommentButton(comment?.id ?? 0)}> X </button>
                                     </div>
-                                </>
+                                </div>
                             ))
                             : <div></div>
                         : <div>
