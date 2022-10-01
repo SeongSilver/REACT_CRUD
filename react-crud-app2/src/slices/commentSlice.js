@@ -8,7 +8,7 @@ const initialState = {
     statusText: "Loading...",
 }
 
-const reducer = {
+const reducers = {
     getCommentList: (state, action) => { },
     getCommentListSuccess: (state, action) => {
         state.commentList = action.payload?.data ?? [];
@@ -33,7 +33,7 @@ const reducer = {
 const commentSlice = createSlice({
     name,
     initialState,
-    reducer
+    reducers
 })
 
 export const commentReducer = commentSlice.reducer;

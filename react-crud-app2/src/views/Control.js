@@ -3,7 +3,7 @@ import React from 'react'
 function Control() {
     return (
         <div>
-            설정
+            컨트롤
         </div>
     )
 }

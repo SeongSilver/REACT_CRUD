@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { articleActions } from '../slices/articleSlice';
 import Comment from './Comments';
-import { articleReducer } from '../slices/articleSlice';
-import { boardReducer } from '../slices/boardSlice';
+// import { articleReducer } from '../slices/articleSlice';
+// import { boardReducer } from '../slices/boardSlice';
 
 function Article() {
     const params = useParams();
@@ -18,9 +18,11 @@ function Article() {
 
     const dispatch = useDispatch();
     const history = useNavigate();
+
     useEffect(() => {
         dispatch(articleActions.getArticle(params?.articleId ?? 0));
     }, [dispatch, params?.articleId]);
+
     return (
         <>
             {
@@ -54,7 +56,7 @@ function Article() {
                                 <span>{article?.content ?? ""}</span>
                             </div>
                             <div>
-                                <Comment articleId={params?.articleId ?? 0} />
+                                <Comment articleId={params?.articleId ?? 0} history={history} />
                             </div>
                         </div>
                     </>

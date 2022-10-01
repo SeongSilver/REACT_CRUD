@@ -2,20 +2,21 @@ import { all, call, fork, put, select, take } from 'redux-saga/effects';
 import { commentActions } from '../slices/commentSlice';
 import axios from '../utils/axios';
 import qs from 'query-string';
-import { articleReducer } from '../slices/articleSlice';
 
 //api 서버 연결 주소
 function apiGetCommentList(requestParams) {
     return axios.get(`comments?${qs.stringify(requestParams)}`);
 }
+
 function apiInsertComment(requestBody) {
     return axios.post(`comments`, requestBody);
 }
+
 function apiDeleteComment(commentId) {
     return axios.delete(`comments/${commentId}`);
 }
 
-//api서버 연결 후 action 호출
+// api 서버 연결 후 action 호출
 function* asyncGetCommentList(action) {
     try {
         const response = yield call(apiGetCommentList, { articleId: action.payload });
@@ -44,7 +45,7 @@ function* asyncInsertComment(action) {
         });
         //POST방식의 경우 return status 201가 온다
         if (response.status === 201) {
-            yield put(commentActions.insertCommentSucess());
+            yield put(commentActions.insertCommentSuccess());
             //댓글 등록이나 삭제가 반영된 db를 재조회하는 것
             yield put(commentActions.getCommentList(article.id));
         } else {
