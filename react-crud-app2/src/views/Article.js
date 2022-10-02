@@ -17,7 +17,12 @@ function Article() {
     );
 
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const navigate = useNavigate();
+
+    //#8 게시글 수정에서 추가
+    function onClickUpdateButton() {
+        navigate(`/update/${params?.articleId ?? 0}`);
+    }
 
     useEffect(() => {
         dispatch(articleActions.getArticle(params?.articleId ?? 0));
@@ -36,6 +41,9 @@ function Article() {
                                     //url파라미터 특성답게 param은 String으로 오기 때문에 형변환 해줘야 한다
                                     boardList.find((board) => board.id === parseInt(article?.boardId))?.name
                                 }
+                            </span>&emsp;
+                            <span>
+                                <button onClick={onClickUpdateButton}>수정</button>
                             </span>
                         </div>
                         <div>

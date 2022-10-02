@@ -47,7 +47,16 @@ const reducers = {
     postArticleFail: (state, action) => {
         state.status = action.payload?.status ?? 500;
         state.statusText = action.payload?.statusText ?? "Network Error";
-    }
+    },
+    //#8 게시글 수정에서 추가
+    setArticle: (state, action) => { },
+
+    putArticle: (state, action) => { },
+    putArticleSuccess: (state, action) => { },
+    putArticleFail: (state, action) => {
+        state.status = action.payload?.status ?? 500;
+        state.statusText = action.payload?.statusText ?? "Network Error";
+    },
 };
 
 const articleSlice = createSlice({

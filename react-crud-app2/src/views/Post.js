@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { articleActions } from '../slices/articleSlice';
 import { SELECT } from '../utils/event';
@@ -7,6 +8,7 @@ function Post() {
     const { boardList, status, statusText } = useSelector((state) => state.boardReducer);
     const [article, setArticle] = useState({});
     const dispatch = useDispatch();
+    const params = useParams();
 
     function onChangeArticle(e) {
         setArticle({
@@ -17,11 +19,28 @@ function Post() {
 
     function onClickSubmitButton() {
         if (article?.boardId > 0 && article?.title) {
-            dispatch(articleActions.postArticle(article));
+            //수정과 신규 등록 차이점은 게시글id존재 여부이므로 if문으로 put post를 나눈다
+            if (article?.id > 0) {
+                dispatch(articleActions.putArticle(article));
+            } else {
+                dispatch(articleActions.postArticle(article));
+            }
         } else {
             alert("게시판과 제목값은 필수값입니다.");
         }
     }
+
+    useEffect(() => {
+        if (params?.articleId) {
+            dispatch(articleActions.setArticle({
+                //useState로 마든 setArticle함수를 action.payload로 바로 넘겨주는것
+                articleId: params?.articleId, setArticle
+            }))
+        } else {
+            setArticle({}); //새글 쓰기 염두
+        }
+    }, dispatch, params?.articleId)
+
     return (
         <div>
             {status === 200 && boardList.length > 0 ?

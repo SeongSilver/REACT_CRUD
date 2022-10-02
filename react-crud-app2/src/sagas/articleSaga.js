@@ -108,6 +108,45 @@ function* asyncPostArticle(action) {
     }
 }
 
+//#8 게시글 수정에서 추가
+function* asyncSetArticle(action) {
+    try {
+        const response = yield call(apiGetArticle, action.payload?.articleId);
+        if (response?.status === 200) {
+            //action.payload?.setArticle은 액션을 통해 넘겨준 함수를 꺼내는 부분인데 call을 이용해 호출한다
+            yield call(action.payload?.setArticle, response?.data ?? {});
+        } else {
+            yield alert(`불러오기 실패 Error : ${response.sattus}, ${response.statusText}`);
+            history.go(-1);
+        }
+    } catch (e) {
+        console.error(e);
+        yield alert(`불러오기 실패 Error : ${e?.response?.status}, ${e?.response?.statusText}`)
+        history.go(-1);
+    }
+}
+
+//#8 게시글 수정에서 추가
+function* asyncPutArticle(action) {
+    try {
+        const response = yield call(apiPutArticle, {
+            ...action.payload,
+            updateDate: Date.now()
+        });
+        if (response?.status === 200) {
+            yield put(articleActions.putArticleSuccess());
+            // history.push(`/article/${response?.data?.id ?? 0}`);
+            history.go(-1);
+        } else {
+            yield put(articleActions.putArticleFail(response));
+            yield alert(`수정실패 \n Error : ${response?.status}, ${response?.statusText}`);
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(articleActions.putArticleFail(e?.response));
+        yield alert(`수정실패 \n Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
 
 //action 호출을 감시하는 watch 함수
 function* watchGetArticleList() {
@@ -139,11 +178,28 @@ function* watchPostArticle() {
     }
 }
 
+//#8 게시글 수정에서 추가
+function* watchSetArticle() {
+    while (true) {
+        const action = yield take(articleActions.setArticle);
+        yield call(asyncSetArticle, action);
+    }
+}
+//#8 게시글 수정에서 추가
+function* watchPutArticle() {
+    while (true) {
+        const action = yield take(articleActions.putArticle);
+        yield call(asyncPutArticle, action);
+    }
+}
+
 export default function* articleSaga() {
     yield all([
         fork(watchGetArticleList),
         fork(watchGetArticle),
         fork(watchUpdateArticleViews),
-        fork(watchPostArticle)
+        fork(watchPostArticle),
+        fork(watchSetArticle),
+        fork(watchPutArticle)
     ]);
 }
