@@ -40,6 +40,13 @@ const reducers = {
         state.article = initialState.article;
         state.status = action.payload?.status ?? 500;
         state.statusText = action.payload?.statusText ?? "Network Error";
+    },
+
+    postArticle: (state, action) => { },
+    postArticleSuccess: (state, action) => { },
+    postArticleFail: (state, action) => {
+        state.status = action.payload?.status ?? 500;
+        state.statusText = action.payload?.statusText ?? "Network Error";
     }
 };
 

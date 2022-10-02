@@ -41,11 +41,20 @@
       "id": 2,
       "title": "치킨 추천하기",
       "content": "교촌이랑 지코바중 하나 택",
-      "views": 42,
+      "views": 43,
       "insertDate": 1617351448578,
-      "updateDate": 1664641120756,
+      "updateDate": 1664643487689,
       "boardId": 2
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": 1,
+      "content": "내일은 허니콤보",
+      "boardId": 2,
+      "articleId": 2,
+      "insertDate": 1664643493300,
+      "updateDate": 1664643493300
+    }
+  ]
 }

@@ -2,7 +2,9 @@ import { all, call, retry, fork, put, take, select } from 'redux-saga/effects';
 import { articleActions } from '../slices/articleSlice';
 import axios from '../utils/axios';
 import qs from "query-string";
+import { useNavigate } from 'react-router';
 
+const navigate = useNavigate();
 const SECOND = 1000;
 
 //api 서버 연결 주소
@@ -20,6 +22,11 @@ function apiGetArticleList(requestParams) {
 //#5에서 추가 게시글 수정시에도 재 활용될 것
 function apiPutArticle(requestBody) {
     return axios.put(`articles/${requestBody?.id}`, requestBody);
+}
+
+//#7에서 추가 post기능
+function apiPostArticle(requestBody) {
+    return axios.post(`articles/`, requestBody);
 }
 
 //api서버 연결 후 action 호출
@@ -78,6 +85,30 @@ function* asyncUpdateArticleViews(action) {
     }
 }
 
+//#7에서 추가 게시판에 새 글 POST하기 (Post.js)
+function* asyncPostArticle(action) {
+    try {
+        const response = yield call(apiPostArticle, {
+            ...action.payload,
+            id: 0,
+            views: 0,
+            insertDate: Date.now(),
+            updateDate: Date.now()
+        });
+        if (response?.status === 201) {
+            yield put(articleActions.postArticleSuccess());
+            navigate(`/article/${response?.data?.id ?? 0}`);
+        } else {
+            yield put(articleActions.postArticleFail(response));
+            yield alert(`등록실패 \n Error : ${response.status}, ${response.statusText}`);
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(articleActions.postArticleFail(e?.response));
+        yield alert(`등록실패  \n Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
+
 //action 호출을 감시하는 watch 함수
 function* watchGetArticleList() {
     while (true) {
@@ -100,11 +131,19 @@ function* watchUpdateArticleViews() {
     }
 }
 
+//#7 post기능에서 추가
+function* watchPostArticle() {
+    while (true) {
+        const action = yield take(articleActions.postArticle);
+        yield call(asyncPostArticle, action);
+    }
+}
 
 export default function* articleSaga() {
     yield all([
         fork(watchGetArticleList),
         fork(watchGetArticle),
-        fork(watchUpdateArticleViews)
+        fork(watchUpdateArticleViews),
+        fork(watchPostArticle)
     ]);
 }
