@@ -32,9 +32,9 @@
       "id": 1,
       "title": "고기 먹는 날",
       "content": "고기는 갓갓임",
-      "views": 32,
+      "views": 34,
       "insertDate": 1617351293396,
-      "updateDate": 1664640119538,
+      "updateDate": 1664693956028,
       "boardId": 1
     },
     {
@@ -45,6 +45,50 @@
       "insertDate": 1617351448578,
       "updateDate": 1664643487689,
       "boardId": 2
+    },
+    {
+      "boardId": "1",
+      "title": "두끼",
+      "content": "",
+      "id": 3,
+      "views": 3,
+      "insertDate": 1664694095332,
+      "updateDate": 1664694485598
+    },
+    {
+      "boardId": "1",
+      "title": "두끼",
+      "content": "ㄴㅇㄴ",
+      "id": 4,
+      "views": 3,
+      "insertDate": 1664694097362,
+      "updateDate": 1664694483940
+    },
+    {
+      "boardId": "1",
+      "title": "일기테스트",
+      "id": 5,
+      "views": 1,
+      "insertDate": 1664694264835,
+      "updateDate": 1664694482335
+    },
+    {
+      "title": "일깅ㅇㅇㅇㅇㅇㅇ",
+      "content": "테스트",
+      "boardId": "1",
+      "id": 6,
+      "views": 1,
+      "insertDate": 1664694467538,
+      "updateDate": 1664694469361
+    },
+    {
+      "boardId": "2",
+      "title": "할일 테스트",
+      "content": "ㅇㅇ",
+      "id": 7,
+      "views": 1,
+      "insertDate": 1664694492475,
+      "updateDate": 1664694494511
     }
   ],
   "comments": [

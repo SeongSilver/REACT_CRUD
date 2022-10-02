@@ -1,10 +1,9 @@
 import { all, call, retry, fork, put, take, select } from 'redux-saga/effects';
 import { articleActions } from '../slices/articleSlice';
+import history from '../utils/history';
 import axios from '../utils/axios';
 import qs from "query-string";
-import { useNavigate } from 'react-router';
 
-const navigate = useNavigate();
 const SECOND = 1000;
 
 //api 서버 연결 주소
@@ -97,17 +96,18 @@ function* asyncPostArticle(action) {
         });
         if (response?.status === 201) {
             yield put(articleActions.postArticleSuccess());
-            navigate(`/article/${response?.data?.id ?? 0}`);
+            history.push(`/article/${response?.data?.id ?? 0}`);
         } else {
             yield put(articleActions.postArticleFail(response));
-            yield alert(`등록실패 \n Error : ${response.status}, ${response.statusText}`);
+            yield alert(`등록실패 \n Error: ${response.status}, ${response.statusText}`);
         }
     } catch (e) {
         console.error(e);
         yield put(articleActions.postArticleFail(e?.response));
-        yield alert(`등록실패  \n Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+        yield alert(`등록실패 \n Error: ${e?.response?.status}, ${e?.response?.statusText}`);
     }
 }
+
 
 //action 호출을 감시하는 watch 함수
 function* watchGetArticleList() {

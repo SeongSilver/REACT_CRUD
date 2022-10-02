@@ -1,16 +1,26 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { articleActions } from '../slices/articleSlice';
 import { SELECT } from '../utils/event';
 
 function Post() {
-    const { boardList, status, statusText } = useSelector((state) => state.boardReducer)
+    const { boardList, status, statusText } = useSelector((state) => state.boardReducer);
     const [article, setArticle] = useState({});
+    const dispatch = useDispatch();
 
     function onChangeArticle(e) {
         setArticle({
             ...article,
             [e.currentTarget.name]: e.currentTarget.value
         });
+    }
+
+    function onClickSubmitButton() {
+        if (article?.boardId > 0 && article?.title) {
+            dispatch(articleActions.postArticle(article));
+        } else {
+            alert("게시판과 제목값은 필수값입니다.");
+        }
     }
     return (
         <div>
@@ -24,10 +34,10 @@ function Post() {
                                 onChange={onChangeArticle}
                                 value={article?.boardId ?? 0}
                             >
-                                <option value={SELECT.id}>{SELECT.name}</option>
+                                <option value={SELECT.id} key={SELECT.id}>{SELECT.name}</option>
                                 {
-                                    boardList.map((board) => (
-                                        <option value={board?.id}>{board?.name ?? ""}</option>
+                                    boardList.map((board, index) => (
+                                        <option value={board?.id} key={board?.id}>{board?.name ?? ""}</option>
                                     ))
                                 }
                             </select>
@@ -48,7 +58,7 @@ function Post() {
                                 value={article?.content ?? ""}
                             />
                         </div>
-                        <button>등록</button>
+                        <button onClick={onClickSubmitButton}>등록</button>
                     </>
                 ) : status === 200 && boardList.length === 0 ?
                     (
