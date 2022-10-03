@@ -44,11 +44,14 @@ function UpdateBoardList({ setShowUpdateBoardList }) {
     }
 
     useEffect(() => {
+        //게시판 수정 전 가장 최신 상태값을 들고온다
+        //가져온 최신 게시판과 코드 리스트들은 useSelector 의 구독기능으로 state에도 업데이트 된다
         dispatch(boardActions.getBoardList());
         dispatch(codeActions.getCodeList());
     }, [dispatch]);
 
     useEffect(() => {
+        //boardList의 값이 바뀔 때마다 화면에서 쓸 state인 UpdatedBoardList에 boardList을 리셋해준다
         setUpdatedBoardList(boardList);
     }, [boardList]);
     return (
@@ -56,6 +59,7 @@ function UpdateBoardList({ setShowUpdateBoardList }) {
             {
                 boardStatus === 200 ?
                     updatedBoardList.length > 0 ?
+                        // {/**들어온 updatedBoard(board와 같은 것) 값을 map을 이용하여 화면에 뿌려줌 */ }
                         updatedBoardList.map((updatedBoard, index) =>
                             <>
                                 <div>
@@ -81,6 +85,7 @@ function UpdateBoardList({ setShowUpdateBoardList }) {
                                                     <option value={""}>선택</option>
                                                     {
                                                         codeList.length > 0 &&
+                                                        //codeList도 게시판 안의 코드 값 설정 부분의 option에 뿌려줌
                                                         codeList.map((code) => (
                                                             <option value={code?.value}>{code?.desc ?? ""}</option>
                                                         ))

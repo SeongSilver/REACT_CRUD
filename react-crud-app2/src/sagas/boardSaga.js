@@ -20,6 +20,16 @@ function apiGetBoard(boardId) {
 function apiGetBoardList() {
     return axios.get(`boards`);
 }
+//#10에서 추가
+function apiPostBoard(requestBody) {
+    return axios.post(`boards`, requestBody);
+}
+function apiPutBoard(requestBody) {
+    return axios.put(`boards/${requestBody?.id}`, requestBody);
+}
+function apiDeleteBoard(boardId) {
+    return axios.delete(`boards/${boardId}`);
+}
 
 //api서버 연결 후 action 호출
 function* asyncGetBoardList() {
@@ -36,6 +46,93 @@ function* asyncGetBoardList() {
     }
 }
 
+//#10에서 추가
+function* asyncGetBoard(action) {
+    try {
+        const response = yield call(apiGetBoard, action.payload);
+        if (response?.status === 200) {
+            yield put(boardActions.getBoardSuccess());
+        } else {
+            yield put(boardActions.getBoardFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(boardActions.getBoardFail(e.response));
+    }
+}
+
+//#10에서 추가
+function* asyncPostBoard(action) {
+    try {
+        const response = yield call(apiPostBoard, {
+            ...action.payload.board,
+            id: 0,
+            insertDate: Date.now(),
+            updateDate: Date.now()
+        });
+        if (response?.status === 201) {
+            yield put(boardActions.postBoardSuccess());
+            alert("등록되었습니다!");
+            /**
+             * 게시판 신규 등록의 경우 CreateBoard.js에서 setShowCreateBoard(컴폰넌트를 보여줄지 말지 결정하는 useState의 set메서드)를
+             * action.payload로 넘겨준 것을 호출해서
+             * 
+             * post성공시 입력폼 접히는 효과가 난다.
+             * put과 delete부분에는 안넣었다 그래서 저장이나 삭제가 완료되면 게시판 목록을
+             * 다시 조회해줄 뿐 입력 폼은 그대로 펼쳐져 있다.
+             * 
+             * 게시판 수정 입력폼을 열어놓은 채로 게시글을 등록하면 새로운 입력폼이 밑에 생기는 것이보인다
+             * UpdateBoardList 컴포넌트에서 boardList가 업로드 될 때마다 setUpdatedBoardList가 동작하므로
+             * 컴포넌트도 바로 렌더링 된다
+             */
+            yield call(action.payload?.setShowCreateBoard, false);
+            yield put(boardActions.getBoardList());
+        } else {
+            yield put(boardActions.postBoardFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(boardActions.postBoardFail(e.response));
+        yield alert(`등록실패 Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
+
+//#10에서 추가
+function* asyncPutBoard(action) {
+    try {
+        const response = yield call(apiPutBoard, { ...action.payload, updateDate: Date.now() });
+        if (response?.status === 200) {
+            yield put(boardActions.putBoardSuccess());
+            alert("저장되었습니다");
+            yield put(boardActions.getBoardList());
+        } else {
+            yield put(boardActions.putBoardFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(boardActions.putBoardFail(e.response));
+        yield alert(`저장실패 Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
+
+//#10에서 ㅊ구ㅏ
+function* asyncDeleteBoard(action) {
+    try {
+        const response = yield call(apiDeleteBoard, action.payload);
+        if (response?.status === 200) {
+            yield put(boardActions.deleteBoardSuccess());
+            alert("삭제되었습니다!");
+            yield put(boardActions.getBoardList());
+        } else {
+            yield put(boardActions.deleteBoardFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(boardActions.deleteBoardFail(e.response));
+        yield alert(`삭제실패 Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
+
 //action 호출을 감시하는 watch 함수
 function* watchGetBoardList() {
     while (true) {
@@ -44,6 +141,37 @@ function* watchGetBoardList() {
     }
 }
 
+//#10에서 아래 4개 비동기 제너레이터 함수 추가
+function* watchGetBoard() {
+    while (true) {
+        const action = yield take(boardActions.getBoard);
+        yield call(asyncGetBoard, action);
+    }
+}
+function* watchPostBoard() {
+    while (true) {
+        const action = yield take(boardActions.postBoard);
+        yield call(asyncPostBoard, action);
+    }
+}
+function* watchPutBoard() {
+    while (true) {
+        const action = yield take(boardActions.putBoard);
+        yield call(asyncPutBoard, action);
+    }
+}
+function* watchDeleteBoard() {
+    while (true) {
+        const action = yield take(boardActions.deleteBoard);
+        yield call(asyncDeleteBoard, action);
+    }
+}
 export default function* boardSaga() {
-    yield all([fork(watchGetBoardList)]);
+    yield all([
+        fork(watchGetBoardList),
+        fork(watchGetBoard),
+        fork(watchPostBoard),
+        fork(watchPutBoard),
+        fork(watchDeleteBoard),
+    ]);
 }

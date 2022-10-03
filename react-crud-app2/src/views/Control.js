@@ -44,6 +44,7 @@ function Control() {
                             }
                         </div>
                     </div>
+                    <hr />
                     <div>
                         <div>
                             <button onCClick={onClickUpdateCodeList}>코드 목록 수정</button>
@@ -55,6 +56,7 @@ function Control() {
                         </div>
                     </div>
                 </div>
+                <hr />
                 <div>
                     <div>
                         <div>
@@ -66,6 +68,7 @@ function Control() {
                             }
                         </div>
                     </div>
+                    <hr />
                     <div>
                         <div>
                             <button onClick={onClickUpdateBoardList}>게시판 목록 수정</button>
