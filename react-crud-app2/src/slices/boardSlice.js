@@ -36,6 +36,22 @@ const reducers = {
         state.status = action.payload?.status ?? 500;
         state.statusText = action.payload?.statusText ?? "Network Error";
     },  //api연결 실패시 리턴값 적용
+
+    getBoard: (state, action) => { },
+    getBoardSuccess: (state, action) => { },
+    getBoardFail: (state, action) => { },
+
+    postBoard: (state, action) => { },
+    postBoardSuccess: (state, action) => { },
+    postBoardFail: (state, action) => { },
+
+    putBoard: (state, action) => { },
+    putBoardSuccess: (state, action) => { },
+    putBoardFail: (state, action) => { },
+
+    deleteBoard: (state, action) => { },
+    deleteBoardSuccess: (state, action) => { },
+    deleteBoardFail: (state, action) => { },
 };
 
 const boardSlice = createSlice({
