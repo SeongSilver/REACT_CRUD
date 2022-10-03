@@ -63,7 +63,9 @@ function Article() {
                                 <span>내용 : </span>
                                 <span>{article?.content ?? ""}</span>
                             </div>
+                            <hr />
                             <div>
+                                <span>댓글</span>
                                 <Comment articleId={params?.articleId ?? 0} />
                             </div>
                         </div>

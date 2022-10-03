@@ -41,9 +41,9 @@
       "id": 2,
       "title": "치킨 추천하기",
       "content": "교촌이랑 지코바중 하나 택",
-      "views": 43,
+      "views": 47,
       "insertDate": 1617351448578,
-      "updateDate": 1664643487689,
+      "updateDate": 1664784217508,
       "boardId": 2
     },
     {
@@ -68,10 +68,10 @@
       "boardId": "1",
       "title": "일기테스트",
       "id": 5,
-      "views": 9,
+      "views": 20,
       "insertDate": 1664694264835,
-      "updateDate": 1664699469537,
-      "content": "수정확인2ㅇㅇㅇㅇㅇㅇ23331231312"
+      "updateDate": 1664783972817,
+      "content": "수정 지우기"
     },
     {
       "title": "일깅ㅇㅇㅇㅇㅇㅇㅇㅇ",
