@@ -47,42 +47,6 @@
       "boardId": 2
     },
     {
-      "boardId": "1",
-      "title": "두끼",
-      "content": "",
-      "id": 3,
-      "views": 3,
-      "insertDate": 1664694095332,
-      "updateDate": 1664694485598
-    },
-    {
-      "boardId": "1",
-      "title": "두끼",
-      "content": "ㄴㅇㄴ",
-      "id": 4,
-      "views": 5,
-      "insertDate": 1664694097362,
-      "updateDate": 1664697668291
-    },
-    {
-      "boardId": "1",
-      "title": "일기테스트",
-      "id": 5,
-      "views": 20,
-      "insertDate": 1664694264835,
-      "updateDate": 1664783972817,
-      "content": "수정 지우기"
-    },
-    {
-      "title": "일깅ㅇㅇㅇㅇㅇㅇㅇㅇ",
-      "content": "테스트 수정되나",
-      "boardId": "1",
-      "id": 6,
-      "views": 5,
-      "insertDate": 1664694467538,
-      "updateDate": 1664699270241
-    },
-    {
       "boardId": "2",
       "title": "할일 테스트",
       "content": "ㅇㅇ",
@@ -100,14 +64,6 @@
       "articleId": 2,
       "insertDate": 1664643493300,
       "updateDate": 1664643493300
-    },
-    {
-      "id": 2,
-      "content": "ㅇㄹㅇㄹㅇㄹ",
-      "boardId": "1",
-      "articleId": 5,
-      "insertDate": 1664699466627,
-      "updateDate": 1664699466627
     }
   ]
 }

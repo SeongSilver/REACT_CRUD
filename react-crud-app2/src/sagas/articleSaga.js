@@ -28,6 +28,11 @@ function apiPostArticle(requestBody) {
     return axios.post(`articles/`, requestBody);
 }
 
+//#9 글 삭제 기능에서 추가
+function apiDeleteArticle(articleId) {
+    return axios.delete(`articles/${articleId}`);
+}
+
 //api서버 연결 후 action 호출
 function* asyncGetAritcleList(action) {
     try {
@@ -148,6 +153,26 @@ function* asyncPutArticle(action) {
     }
 }
 
+//#9 글 삭제에서 추가
+function* asyncDeleteArticle() {
+    try {
+        const article = yield select((state) => state.articleReducer.article);
+        const response = yield call(apiDeleteArticle, article?.id ?? 0);
+
+        if (response?.status === 200) {
+            yield put(articleActions.deleteArticleSuccess());
+            alert('삭제되었습니다!');
+            history.push(`/board/${article?.boardId ?? 0}`);
+        } else {
+            yield put(articleActions.deleteArticleFail(response));
+        }
+    } catch (e) {
+        console.error(e);
+        yield put(articleActions.deleteArticleFail(e.response));
+        yield alert(`삭제실패 \n Error : ${e?.response?.status}, ${e?.response?.statusText}`);
+    }
+}
+
 //action 호출을 감시하는 watch 함수
 function* watchGetArticleList() {
     while (true) {
@@ -193,6 +218,14 @@ function* watchPutArticle() {
     }
 }
 
+//#9 게시글 삭제에서 추가
+function* watchDeleteArticle() {
+    while (true) {
+        yield take(articleActions.deleteArticle);
+        yield call(asyncDeleteArticle);
+    }
+}
+
 export default function* articleSaga() {
     yield all([
         fork(watchGetArticleList),
@@ -200,6 +233,7 @@ export default function* articleSaga() {
         fork(watchUpdateArticleViews),
         fork(watchPostArticle),
         fork(watchSetArticle),
-        fork(watchPutArticle)
+        fork(watchPutArticle),
+        fork(watchDeleteArticle),
     ]);
 }

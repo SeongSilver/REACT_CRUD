@@ -24,6 +24,11 @@ function Article() {
         navigate(`/update/${params?.articleId ?? 0}`);
     }
 
+    //#9 게시글 삭제에서 추가
+    function onClickDeleteButton() {
+        dispatch(articleActions.deleteArticle());
+    }
+
     useEffect(() => {
         dispatch(articleActions.getArticle(params?.articleId ?? 0));
     }, [dispatch, params?.articleId]);
@@ -44,6 +49,10 @@ function Article() {
                             </span>&emsp;
                             <span>
                                 <button onClick={onClickUpdateButton}>수정</button>
+                            </span>
+                            &nbsp;
+                            <span>
+                                <button onClick={onClickDeleteButton}>삭제</button>
                             </span>
                         </div>
                         <div>

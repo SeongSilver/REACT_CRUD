@@ -57,6 +57,18 @@ const reducers = {
         state.status = action.payload?.status ?? 500;
         state.statusText = action.payload?.statusText ?? "Network Error";
     },
+
+    //#9에서 delete기능 추가
+    deleteArticle: (state, action) => { },
+    deleteArticleSuccess: (state, action) => {
+        state.article = initialState.article;
+        state.status = action.payload?.status;
+        state.statusText = action.payload?.statusText ?? "";
+    },
+    deleteArticleFail: (state, action) => {
+        state.status = action.payload?.status ?? 500;
+        state.statusText = action.payload?.statusText ?? "Network Error";
+    },
 };
 
 const articleSlice = createSlice({
