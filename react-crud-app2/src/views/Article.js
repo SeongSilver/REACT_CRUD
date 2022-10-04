@@ -70,7 +70,7 @@ function Article() {
                             </div>
                             <div>
                                 <span>내용 : </span>
-                                <span>{article?.content ?? ""}</span>
+                                <span>{article?.content?.split("\n")?.map(line => <span>{line}<br /></span>)}</span>
                             </div>
                             <hr />
                             <div>

@@ -21,6 +21,12 @@ function UpdateBoardList({ setShowUpdateBoardList }) {
     const [updatedBoardList, setUpdatedBoardList] = useState(boardList ?? []);
     const dispatch = useDispatch();
 
+    /**
+     * onChange를 리듀서 액션으로 안만든 이유
+     * 만들려면 게시판 조회해올 때마다 보여주는 게시판 리스트와 수정용 게시판 리스트로 값을 같이 넣어줘야한는데
+     * 그러기엔 boardSlice를 건들기 싫다(블로그 주인의 말)
+     * 같은 boardList쓰면 되지 않냐는 물음에는 sidebar도 같은 ㄴtate를 이용함으로 
+     */
     function onChangeBoard(e) {
         const copiedBoardList = [...updatedBoardList];
         copiedBoardList[e.target?.dataset?.index] = {

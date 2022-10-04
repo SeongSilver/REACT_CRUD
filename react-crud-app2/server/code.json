@@ -1,0 +1,20 @@
+{
+    "codes":[
+        {
+            "id":0,
+            "value":"",
+            "desc":""
+
+        }
+    ],
+
+    "boards":[
+        {
+            "id": 1,
+            "name": "일기",
+            "insertDate": 1617351293396,
+            "updateDate": 1617351293396,
+            "code": "J"
+        },
+    ]
+}
