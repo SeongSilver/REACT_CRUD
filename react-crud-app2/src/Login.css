@@ -1,0 +1,16 @@
+.loginContainer{
+    padding:20px 0px 0px 30px;
+    width:90%;
+    height:25vh;
+    background-color:white;
+    text-align:center;
+}
+.loginBox{
+    width:100%;
+}
+.loginBox span:first-child{
+    width:30%;
+}
+.loginBox span:last-child{
+    width:60%;
+}

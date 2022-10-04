@@ -66,6 +66,7 @@ function Article() {
                             </div>
                             <div>
                                 <span>작성일시 : </span>
+
                                 <span>{(article.insertDate) ? new Date(article?.insertDate).toLocaleString() : ""}</span>
                             </div>
                             <div>

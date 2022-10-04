@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Login from '../Login';
 
 // import Main from '../views/Main';
 // import Article from '../views/Article';
@@ -57,6 +58,7 @@ function ChangeURL() {
                     <Route path={"*"} element={<Main />} />
                 </Routes>
             </Suspense>
+            <Login />
         </div>
     )
 }
