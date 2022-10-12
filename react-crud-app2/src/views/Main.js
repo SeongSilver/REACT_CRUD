@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './CSS/Main.css';
+import { RiComputerLine } from 'react-icons/ri'
 
 function Main() {
     return (
-        <div>
-            웰컴!
+        <div className='mainContainer'>
+            <div>
+                <RiComputerLine />&nbsp;&nbsp;CRUD 프로젝트
+            </div>
         </div>
     )
 }

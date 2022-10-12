@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { loginUser } from './slices/loginSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from './slices/userSlice';
 import axios from 'axios';
 import './Login.css';
 import { useRevalidator } from 'react-router';
 
 function Login() {
+    //axios통신 시 로그인이 성공했을 때 액션함수 파라미터로 전송한 유저 정보를 받아
+    //reducer함수에서 state값을 변경
+    //이렇게 저장된 state의 값은 MyPage.jsx에서 useSelector를 통해 접근하여
+    //유저이름 user.name을 출력할 수 있다.
+    let user = useSelector((state) => { return state.user });
     const dispatch = useDispatch();
 
     const [id, setId] = useState("");
@@ -14,10 +19,18 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const [msg, setMsg] = useState("");
 
-    // let user = useSelector((state) => { return state.user });
 
     useEffect(() => {
-
+        if (msg) {
+            setTimeout(() => {
+                setMsg("");
+                //버튼 disabled의 초기값을 false로 두고 통신을 하는 동안 메세지가
+                //출력되어있는동안 에는 로그인 버튼을 다시 클릭할 수 없으므로
+                //axios 통신이 이루어지는 동안에는 값을 true로 변경하고
+                //1.5초 후에는 다시 false로 변경하여 버튼을 클릭할 수 있도록 한다
+                setLoading(false);
+            }, 1500);
+        }
     }, [msg])
 
     const LoginFunc = (e) => {
@@ -66,7 +79,7 @@ function Login() {
                     <span><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></span>
                 </div>
                 <br />
-                <button type="submit">로그인</button>
+                <button type="submit" disabled={loading}>로그인</button>
                 <br />
                 {msg}
             </form>

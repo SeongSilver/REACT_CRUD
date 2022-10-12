@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../Login';
+import MyPage from '../MyPage';
 
 // import Main from '../views/Main';
 // import Article from '../views/Article';
@@ -31,6 +33,7 @@ function ChangeURL() {
     const Post = lazy(() => import('../views/Post'));
     const Control = lazy(() => import('../views/Control'));
 
+    const user = useSelector((state) => state);
     return (
         <div>
             {/**
@@ -58,7 +61,7 @@ function ChangeURL() {
                     <Route path={"*"} element={<Main />} />
                 </Routes>
             </Suspense>
-            <Login />
+            {/* {user.isLogin ? <MyPage /> : <Login />} */}
         </div>
     )
 }

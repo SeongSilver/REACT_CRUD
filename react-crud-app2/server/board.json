@@ -32,18 +32,18 @@
       "id": 1,
       "title": "고기 먹는 날",
       "content": "고기는 갓갓임",
-      "views": 50,
+      "views": 51,
       "insertDate": 1617351293396,
-      "updateDate": 1664849277888,
+      "updateDate": 1665565957500,
       "boardId": 1
     },
     {
       "id": 2,
       "title": "치킨 추천하기",
       "content": "교촌이랑 지코바중 하나 택",
-      "views": 47,
+      "views": 48,
       "insertDate": 1617351448578,
-      "updateDate": 1664784217508,
+      "updateDate": 1665580922903,
       "boardId": 2
     },
     {
@@ -51,9 +51,9 @@
       "title": "할일 테스트",
       "content": "ㅇㅇ",
       "id": 7,
-      "views": 3,
+      "views": 5,
       "insertDate": 1664694492475,
-      "updateDate": 1664850065386
+      "updateDate": 1665590358339
     },
     {
       "boardId": "1",
@@ -69,9 +69,9 @@
       "title": "어ㅔ에엥왱",
       "content": "엔터\n테스트인데\n진짜\n왜 해야되는거지\n이거\n진짜로",
       "id": 9,
-      "views": 1,
+      "views": 2,
       "insertDate": 1664850014106,
-      "updateDate": 1664850056643
+      "updateDate": 1665590360960
     },
     {
       "title": "다시 테스트",
@@ -93,7 +93,10 @@
       "updateDate": 1664643493300
     }
   ],
-  "logins":[
-    
+  "logins": [
+    {
+      "id": "ddvuutk",
+      "password": 1234
+    }
   ]
 }

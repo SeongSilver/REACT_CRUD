@@ -23,22 +23,20 @@ function Views() {
         navigate("/control");
     }
     return (
-        <div>
+        <div className="container">
             <div id="header" className="header">
                 <div>
-                    <h3>Board CRUD</h3>
-                </div>
-                <div>
-                    <div>
-                        <button onClick={onClickNewPostButton}>새글</button>
-                    </div>
+                    <h3>WINSTON CRUD</h3>
+                    <button onClick={onClickNewPostButton}>글쓰기</button>
                 </div>
             </div>
-            <div id="sidebar" className="sidebar">
-                <Board />
-            </div>
-            <div id="content" className="content">
-                <ChangeURL />
+            <div className="contentContainer">
+                <div id="sidebar" className="sidebar">
+                    <Board />
+                </div>
+                <div id="content" className="content">
+                    <ChangeURL />
+                </div>
             </div>
         </div>
     );

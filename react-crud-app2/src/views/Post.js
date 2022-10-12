@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { articleActions } from '../slices/articleSlice';
 import { SELECT } from '../utils/event';
 import { boardActions } from '../slices/boardSlice';
+import './CSS/Post.css'
 
 function Post() {
     const { boardList, boardStatus, boardStatusText } = useSelector(
@@ -64,10 +65,19 @@ function Post() {
         <div>
             {boardStatus === 200 && boardList.length > 0 ?
                 (
-                    <>
-                        <div>
-                            <span>게시판: </span>
+                    <div className="postConatiners">
+                        <div className="postContent postTitle">
+                            <span>제목&emsp;&emsp;</span>
+                            <input
+                                name="title"
+                                onChange={onChangeArticle}
+                                value={article?.title ?? ""}
+                            />
+                        </div>
+                        <div className="postContent postSelect">
+                            <span>게시판&emsp;&emsp;</span>
                             <select
+                                className="postSelectBox"
                                 name="boardId"
                                 onChange={onChangeArticle}
                                 value={article?.boardId ?? 0}
@@ -80,24 +90,16 @@ function Post() {
                                 }
                             </select>
                         </div>
-                        <div>
-                            <span>제목: </span>
-                            <input
-                                name="title"
-                                onChange={onChangeArticle}
-                                value={article?.title ?? ""}
-                            />
-                        </div>
-                        <div>
-                            <span>내용: </span>
+                        <div className="postContent postTextarea">
                             <textarea
                                 name="content"
                                 onChange={onChangeArticle}
                                 value={article?.content ?? ""}
                             />
+                            <br />
+                            <button onClick={onClickSubmitButton}>등록</button>
                         </div>
-                        <button onClick={onClickSubmitButton}>등록</button>
-                    </>
+                    </div>
                 ) : boardStatus === 200 && boardList.length === 0 ?
                     (
                         <div>

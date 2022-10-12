@@ -10,11 +10,15 @@ export const userSlice = createSlice({
     },
     reducer: {
         loginUser: (state, action) => {
-
+            state.name = action.payload.name;
+            state.id = action.payload.id;
+            state.isLogin = true;
         },
 
         clearUser: (state) => {
-
+            state.name = "";
+            state.id = "";
+            state.isLogin = false;
         },
     },
 });
