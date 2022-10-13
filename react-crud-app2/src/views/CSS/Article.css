@@ -30,7 +30,7 @@
 }
 
 .articleContent{
-    height:20vh;
+    height:50%;
     margin-top:3vh;
     margin-left:5vw;
 
@@ -47,4 +47,18 @@
     margin-right:6vw;
     display:flex;
     justify-content: space-between;
+}
+.articleContentText{
+    margin-right:6vw;
+    padding:20px;
+    border-radius:15px;
+    background-color:white;
+}
+
+.comment{
+    margin-left:4vw;
+    margin-right:5vw;
+    height:30vh;
+    overflow:scroll;
+    overflow-x:hidden;
 }

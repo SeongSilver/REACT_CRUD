@@ -42,9 +42,9 @@
       "content": "-TODO APP \n-React로 기존에 JS로 해봤던 TODO 앱 만들어보기\n-CRUD를 간단하게 구현",
       "boardId": "2",
       "id": 2,
-      "views": 25,
+      "views": 43,
       "insertDate": 1665650013823,
-      "updateDate": 1665651670367
+      "updateDate": 1665675619139
     },
     {
       "title": "TEAM PJ. 소분소분",
@@ -56,31 +56,13 @@
       "updateDate": 1665650077335
     },
     {
-      "title": "HOOK 아직도 모르겠다..",
-      "boardId": "1",
-      "content": "아직도 useEffect랑 useCallback이 뭐가 다른지 모르겠고...\n블로그에 한번 정리하고 개념 머리에 담고 시작해야 겠다 뭐...그런..",
-      "id": 4,
-      "views": 1,
-      "insertDate": 1665650118272,
-      "updateDate": 1665650780019
-    },
-    {
-      "title": "TEAM PJ.TRAVELOG",
+      "title": "TEAM PJ. TRAVELOG",
       "boardId": "2",
       "content": "벤처스타트업 협회 주관 팀프로젝트\n라이프 로그 2팀 투래블러\n여행을 기록하고자 하는 서비스를 만들어\n인스타를 벤치마킹해 만든 서비스\n마이페이지는 인스타와 동일한 폼을 가져가되\n글을 올리고 서로의 의견을 프라이빗하게, 자유롭게 공유하는 공간을 따로 만든 서비스",
       "id": 5,
-      "views": 0,
+      "views": 2,
       "insertDate": 1665650210447,
-      "updateDate": 1665650210447
-    },
-    {
-      "title": "허니콤보가 먹고싶은데",
-      "content": "현아가 또 기프티콘을...\n너무 감사한거 아니냐고...\n",
-      "boardId": "1",
-      "id": 6,
-      "views": 0,
-      "insertDate": 1665650362846,
-      "updateDate": 1665650362846
+      "updateDate": 1665659111664
     },
     {
       "title": "IT 뉴스 매일 하나씩",
@@ -90,15 +72,6 @@
       "views": 0,
       "insertDate": 1665650392511,
       "updateDate": 1665650392511
-    },
-    {
-      "title": "매일 깃커밋",
-      "content": "깃허브에 커밋 밭농사 추석 빼고 아주 잘짓고있지만\n하루도 빠지지말고 더 지어볼것..",
-      "boardId": "2",
-      "id": 8,
-      "views": 0,
-      "insertDate": 1665650428480,
-      "updateDate": 1665650428480
     }
   ],
   "comments": [
@@ -133,6 +106,14 @@
       "articleId": 2,
       "insertDate": 1665650252823,
       "updateDate": 1665650252823
+    },
+    {
+      "id": 6,
+      "content": "asd",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665659503261,
+      "updateDate": 1665659503261
     }
   ],
   "logins": [

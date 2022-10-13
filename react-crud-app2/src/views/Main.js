@@ -6,7 +6,7 @@ function Main() {
     return (
         <div className='mainContainer'>
             <div>
-                <RiComputerLine />&nbsp;&nbsp;CRUD 프로젝트
+                <RiComputerLine className='mainTitle' />&nbsp;&nbsp;CRUD 프로젝트
             </div>
         </div>
     )

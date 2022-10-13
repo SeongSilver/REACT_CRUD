@@ -70,14 +70,13 @@ function Article() {
                                     <span>{(article.insertDate) ? new Date(article?.insertDate).toLocaleString() : ""}</span>
                                 </div>
                             </div>
-                            <div>
+                            <div className='articleContentText'>
                                 <span>{article?.content?.split("\n")?.map(line => <span>{line}<br /></span>)}</span>
                             </div>
                             <hr />
-                            <div>
-                                <span>댓글</span>
-                                <Comment articleId={params?.articleId ?? 0} />
-                            </div>
+                        </div>
+                        <div className="comment">
+                            <Comment articleId={params?.articleId ?? 0} />
                         </div>
                     </>
                     :
