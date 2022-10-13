@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { articleActions } from '../slices/articleSlice';
 import Comment from './Comments';
+import './CSS/Article.css';
 // import { articleReducer } from '../slices/articleSlice';
 // import { boardReducer } from '../slices/boardSlice';
 
@@ -38,9 +39,8 @@ function Article() {
             {
                 status === 200 ?
                     <>
-                        <div>
-                            <span>게시판 : </span>
-                            <span>
+                        <div className='article'>
+                            <span>게시판.&nbsp;
                                 {
                                     boardList.length > 0 &&
                                     //url파라미터 특성답게 param은 String으로 오기 때문에 형변환 해줘야 한다
@@ -48,29 +48,29 @@ function Article() {
                                 }
                             </span>&emsp;
                             <span>
-                                <button onClick={onClickUpdateButton}>수정</button>
-                            </span>
-                            &nbsp;
-                            <span>
+                                <button onClick={onClickUpdateButton}>수정</button>&nbsp;
                                 <button onClick={onClickDeleteButton}>삭제</button>
                             </span>
                         </div>
-                        <div>
-                            <div>
-                                <span>제목 : </span>
-                                <span>{article?.title ?? ""}</span>
-                            </div>
-                            <div>
-                                <span>조회수 : </span>
-                                <span>{article?.views ?? ""}</span>
-                            </div>
-                            <div>
-                                <span>작성일시 : </span>
+                        <hr className='articleHr' />
 
-                                <span>{(article.insertDate) ? new Date(article?.insertDate).toLocaleString() : ""}</span>
+                        <div className='articleContent'>
+                            <div className='articleContentTitle'>
+                                <div>
+                                    <span>제목 : </span>
+                                    <span>{article?.title ?? ""}</span>
+                                </div>
+                                <div>
+                                    <span>조회수 : </span>
+                                    <span>{article?.views ?? ""}</span>
+                                </div>
+                                <div>
+                                    <span>작성일시 : </span>
+
+                                    <span>{(article.insertDate) ? new Date(article?.insertDate).toLocaleString() : ""}</span>
+                                </div>
                             </div>
                             <div>
-                                <span>내용 : </span>
                                 <span>{article?.content?.split("\n")?.map(line => <span>{line}<br /></span>)}</span>
                             </div>
                             <hr />

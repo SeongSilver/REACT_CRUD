@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { articleActions } from '../slices/articleSlice';
+import './CSS/ArticleList.css';
 
 function ArticleList() {
     /**
@@ -22,13 +23,17 @@ function ArticleList() {
     useEffect(() => {
         dispatch(articleActions.getArticleList(params?.boardId ?? 0));
     }, [dispatch, params?.boardId]);
+
+    const changeDate = (num) => {
+        return new Date(num);
+    }
     return (
         <>
             {
                 status === 200 ?
                     <>
-                        <div>
-                            <span>게시판 : </span>
+                        <div className='articleList'>
+                            <span>게시판.&nbsp;</span>
                             <span>
                                 {
                                     boardList.length > 0 &&
@@ -37,18 +42,16 @@ function ArticleList() {
                             </span>
                         </div>
                         {articleList.length > 0 ?
-                            <div>
-                                <div>
-                                    {
-                                        articleList.map((article, index) =>
-                                            <div key={article?.id ?? index}>
-                                                <Link to={{ pathname: `/article/${article?.id ?? 0}` }}>
-                                                    <span>{article?.title ?? ""}</span>
-                                                </Link>
-                                            </div>
-                                        )
-                                    }
-                                </div>
+                            <div className='articleListContent'>
+                                {
+                                    articleList.map((article, index) =>
+                                        <div key={article?.id ?? index}>
+                                            <Link to={{ pathname: `/article/${article?.id ?? 0}` }}>
+                                                <span>{article?.title ?? ""}</span>
+                                            </Link>
+                                        </div>
+                                    )
+                                }
                             </div>
                             :
                             <div>게시글이 없습니다.</div>

@@ -54,7 +54,7 @@ a:hover{
     height:80vh;
     margin:0 auto;
     margin-top:8vh;
-    border-radius:100px;
+    border-radius:60px;
     box-shadow:10px 10px 30px rgba(0,0,0,0.3);
 }
 .header{
@@ -65,8 +65,8 @@ a:hover{
     display:flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius:100px;
-    border-top-right-radius:100px;
+    border-top-left-radius:60px;
+    border-top-right-radius:60px;
 }
 .header h3{
     margin:0 auto;
@@ -98,7 +98,7 @@ a:hover{
     width:25%;
     height:100%;
     background-color: rgba(0,0,0,0.3);
-    border-bottom-left-radius:100px;
+    border-bottom-left-radius:60px;
 }
 
 .content{
@@ -106,7 +106,7 @@ a:hover{
     width:75%;
     height:calc(100% - 40px);
     background-color: rgba(0,0,0,0.2);
-    border-bottom-right-radius:100px;
+    border-bottom-right-radius:60px;
 }
 
 .hide{

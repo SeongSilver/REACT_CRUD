@@ -29,68 +29,110 @@
   ],
   "articles": [
     {
-      "id": 1,
-      "title": "고기 먹는 날",
-      "content": "고기는 갓갓임",
-      "views": 51,
-      "insertDate": 1617351293396,
-      "updateDate": 1665565957500,
-      "boardId": 1
-    },
-    {
-      "id": 2,
-      "title": "치킨 추천하기",
-      "content": "교촌이랑 지코바중 하나 택",
-      "views": 48,
-      "insertDate": 1617351448578,
-      "updateDate": 1665580922903,
-      "boardId": 2
-    },
-    {
+      "title": "movie-app 토이 프로젝트",
       "boardId": "2",
-      "title": "할일 테스트",
-      "content": "ㅇㅇ",
-      "id": 7,
-      "views": 5,
-      "insertDate": 1664694492475,
-      "updateDate": 1665590358339
+      "content": "-영화 관련 API 가져와서 값 뿌려보기\n-TMDB 사용할 것\n-CSS 까지 마무리",
+      "id": 1,
+      "views": 0,
+      "insertDate": 1665649965041,
+      "updateDate": 1665649965041
     },
     {
+      "title": "TODO-APP",
+      "content": "-TODO APP \n-React로 기존에 JS로 해봤던 TODO 앱 만들어보기\n-CRUD를 간단하게 구현",
+      "boardId": "2",
+      "id": 2,
+      "views": 25,
+      "insertDate": 1665650013823,
+      "updateDate": 1665651670367
+    },
+    {
+      "title": "TEAM PJ. 소분소분",
+      "boardId": "2",
+      "content": "멀티캠퍼스 풀스택 개발 1차 팀프로젝트\n2팀 소분소분\n당근마켓을 벤치마킹한 서비스로서\n주변 지역 사람들 끼리 물건을 나눔, 대여, 판매 해주는 서비스\n",
+      "id": 3,
+      "views": 0,
+      "insertDate": 1665650077335,
+      "updateDate": 1665650077335
+    },
+    {
+      "title": "HOOK 아직도 모르겠다..",
       "boardId": "1",
-      "title": "오늘의 일기",
-      "content": "다 끝난거같은데 기능이안된다",
+      "content": "아직도 useEffect랑 useCallback이 뭐가 다른지 모르겠고...\n블로그에 한번 정리하고 개념 머리에 담고 시작해야 겠다 뭐...그런..",
+      "id": 4,
+      "views": 1,
+      "insertDate": 1665650118272,
+      "updateDate": 1665650780019
+    },
+    {
+      "title": "TEAM PJ.TRAVELOG",
+      "boardId": "2",
+      "content": "벤처스타트업 협회 주관 팀프로젝트\n라이프 로그 2팀 투래블러\n여행을 기록하고자 하는 서비스를 만들어\n인스타를 벤치마킹해 만든 서비스\n마이페이지는 인스타와 동일한 폼을 가져가되\n글을 올리고 서로의 의견을 프라이빗하게, 자유롭게 공유하는 공간을 따로 만든 서비스",
+      "id": 5,
+      "views": 0,
+      "insertDate": 1665650210447,
+      "updateDate": 1665650210447
+    },
+    {
+      "title": "허니콤보가 먹고싶은데",
+      "content": "현아가 또 기프티콘을...\n너무 감사한거 아니냐고...\n",
+      "boardId": "1",
+      "id": 6,
+      "views": 0,
+      "insertDate": 1665650362846,
+      "updateDate": 1665650362846
+    },
+    {
+      "title": "IT 뉴스 매일 하나씩",
+      "content": "개발자 탭에 있는 IT 뉴스는 꼭 하나씩 읽을 것",
+      "boardId": "2",
+      "id": 7,
+      "views": 0,
+      "insertDate": 1665650392511,
+      "updateDate": 1665650392511
+    },
+    {
+      "title": "매일 깃커밋",
+      "content": "깃허브에 커밋 밭농사 추석 빼고 아주 잘짓고있지만\n하루도 빠지지말고 더 지어볼것..",
+      "boardId": "2",
       "id": 8,
       "views": 0,
-      "insertDate": 1664849290689,
-      "updateDate": 1664849290689
-    },
-    {
-      "boardId": "1",
-      "title": "어ㅔ에엥왱",
-      "content": "엔터\n테스트인데\n진짜\n왜 해야되는거지\n이거\n진짜로",
-      "id": 9,
-      "views": 2,
-      "insertDate": 1664850014106,
-      "updateDate": 1665590360960
-    },
-    {
-      "title": "다시 테스트",
-      "content": "br로는\n안나오는건가\n그렇게 설정했는데\n뭐지 이건",
-      "boardId": "1",
-      "id": 10,
-      "views": 1,
-      "insertDate": 1664850083400,
-      "updateDate": 1664850085421
+      "insertDate": 1665650428480,
+      "updateDate": 1665650428480
     }
   ],
   "comments": [
     {
       "id": 1,
-      "content": "내일은 허니콤보",
-      "boardId": 2,
+      "content": "모멘텀으로 발전시켜보자...",
+      "boardId": "2",
       "articleId": 2,
-      "insertDate": 1664643493300,
-      "updateDate": 1664643493300
+      "insertDate": 1665650225256,
+      "updateDate": 1665650225256
+    },
+    {
+      "id": 2,
+      "content": "CLOCK추가",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650231414,
+      "updateDate": 1665650231414
+    },
+    {
+      "id": 3,
+      "content": "WEATHER 추가 open weather map API 사용",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650247319,
+      "updateDate": 1665650247319
+    },
+    {
+      "id": 4,
+      "content": "랜덤 배경이미지 추가",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650252823,
+      "updateDate": 1665650252823
     }
   ],
   "logins": [
