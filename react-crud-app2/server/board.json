@@ -1,0 +1,125 @@
+{
+  "codes": [
+    {
+      "id": 1,
+      "value": "J",
+      "desc": "Journal"
+    },
+    {
+      "id": 2,
+      "value": "D",
+      "desc": "ToDo"
+    }
+  ],
+  "boards": [
+    {
+      "id": 1,
+      "name": "일기",
+      "insertDate": 1617351293396,
+      "updateDate": 1617351293396,
+      "code": "J"
+    },
+    {
+      "id": 2,
+      "name": "할일",
+      "insertDate": 1617351293396,
+      "updateDate": 1617351293396,
+      "code": "D"
+    }
+  ],
+  "articles": [
+    {
+      "title": "movie-app 토이 프로젝트",
+      "boardId": "2",
+      "content": "-영화 관련 API 가져와서 값 뿌려보기\n-TMDB 사용할 것\n-CSS 까지 마무리",
+      "id": 1,
+      "views": 0,
+      "insertDate": 1665649965041,
+      "updateDate": 1665649965041
+    },
+    {
+      "title": "TODO-APP",
+      "content": "-TODO APP \n-React로 기존에 JS로 해봤던 TODO 앱 만들어보기\n-CRUD를 간단하게 구현",
+      "boardId": "2",
+      "id": 2,
+      "views": 43,
+      "insertDate": 1665650013823,
+      "updateDate": 1665675619139
+    },
+    {
+      "title": "TEAM PJ. 소분소분",
+      "boardId": "2",
+      "content": "멀티캠퍼스 풀스택 개발 1차 팀프로젝트\n2팀 소분소분\n당근마켓을 벤치마킹한 서비스로서\n주변 지역 사람들 끼리 물건을 나눔, 대여, 판매 해주는 서비스\n",
+      "id": 3,
+      "views": 0,
+      "insertDate": 1665650077335,
+      "updateDate": 1665650077335
+    },
+    {
+      "title": "TEAM PJ. TRAVELOG",
+      "boardId": "2",
+      "content": "벤처스타트업 협회 주관 팀프로젝트\n라이프 로그 2팀 투래블러\n여행을 기록하고자 하는 서비스를 만들어\n인스타를 벤치마킹해 만든 서비스\n마이페이지는 인스타와 동일한 폼을 가져가되\n글을 올리고 서로의 의견을 프라이빗하게, 자유롭게 공유하는 공간을 따로 만든 서비스",
+      "id": 5,
+      "views": 2,
+      "insertDate": 1665650210447,
+      "updateDate": 1665659111664
+    },
+    {
+      "title": "IT 뉴스 매일 하나씩",
+      "content": "개발자 탭에 있는 IT 뉴스는 꼭 하나씩 읽을 것",
+      "boardId": "2",
+      "id": 7,
+      "views": 0,
+      "insertDate": 1665650392511,
+      "updateDate": 1665650392511
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "content": "모멘텀으로 발전시켜보자...",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650225256,
+      "updateDate": 1665650225256
+    },
+    {
+      "id": 2,
+      "content": "CLOCK추가",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650231414,
+      "updateDate": 1665650231414
+    },
+    {
+      "id": 3,
+      "content": "WEATHER 추가 open weather map API 사용",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650247319,
+      "updateDate": 1665650247319
+    },
+    {
+      "id": 4,
+      "content": "랜덤 배경이미지 추가",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665650252823,
+      "updateDate": 1665650252823
+    },
+    {
+      "id": 6,
+      "content": "asd",
+      "boardId": "2",
+      "articleId": 2,
+      "insertDate": 1665659503261,
+      "updateDate": 1665659503261
+    }
+  ],
+  "logins": [
+    {
+      "id": "ddvuutk",
+      "password": 1234
+    }
+  ]
+}

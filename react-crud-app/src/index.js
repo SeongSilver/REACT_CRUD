@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
 import { Provider } from 'react-redux';
-import { Router} from 'react-router';
-import  history  from './utils/history';
+import { createBrowserHistory } from 'history';
 import store from './store';
+import { Router } from 'react-router'
 
+const custonHistory = createBrowserHistory({ forceRefresh: true })
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <Router history={history} location={history.location}>
-      <App/>
+    <Router history={custonHistory} location={custonHistory.location}>
+      <App />
     </Router>
   </Provider>
 );

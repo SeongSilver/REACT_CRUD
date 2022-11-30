@@ -1,0 +1,22 @@
+.articleList{
+    display:flex;
+    font-size:1.5em;
+    font-weight:600;
+    margin-bottom:3vh;
+}
+
+.articleListContent{
+    text-align:center;
+}
+
+.articleListContent div{
+    margin-right:2vw;
+    height:4vh;
+    line-height:4vh;
+    border-top:1px solid gray;
+    font-size:1.1em;
+}
+
+.articleListContent div:nth-child(even){
+    background-color: rgba(0,0,0,0.08);
+}

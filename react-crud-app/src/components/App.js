@@ -7,11 +7,12 @@ import RegisterPage from './views/RegisterPage/RegisterPage';
 import "../App.css";
 
 function App() {
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<BoardPage />} />
-        <Route path="/article/:articleId/" element={<ArticlePage />} component={<ArticlePage/>} />
+        <Route path="/article/:articleId/" element={<ArticlePage />} />
         <Route path="/register/" element={<RegisterPage />} />
       </Routes>
     </div>

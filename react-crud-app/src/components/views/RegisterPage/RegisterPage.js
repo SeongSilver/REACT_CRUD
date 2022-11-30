@@ -27,6 +27,7 @@ const RegisterPage = () => {
         setContentValue(event.currentTarget.value);
     };
 
+
     const onSubmitArticle = (event) => {
         event.preventDefault();
 
